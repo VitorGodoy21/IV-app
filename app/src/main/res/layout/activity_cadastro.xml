@@ -1,18 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_gravity="center"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="br.com.appiv.iv.Cadastro">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</android.support.constraint.ConstraintLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_nomeConta"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Nome da Conta"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/et_nomeConta"
+                    style="@style/EditText_Cadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_saldo"
+                    android:text="Saldo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorPrimaryDark"
+                    />
+
+                <EditText
+                    android:id="@+id/et_saldo"
+                    style="@style/EditText_Cadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="10dp">
+
+                <TextView
+                    android:id="@+id/tv_dataFatura"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Data da Fatura"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/et_dataFatura"
+                    style="@style/EditText_Cadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_senha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Senha"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    android:id="@+id/et_senha"
+                    style="@style/EditText_Cadastro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+
+                    android:id="@+id/tv_confirmarSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cofirmar Senha"
+                    android:textColor="@color/colorPrimaryDark" />
+
+                <EditText
+                    style="@style/EditText_Cadastro"
+                    android:id="@+id/et_confirmarSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberPassword"/>
+
+            </LinearLayout>
+
+           <Button
+               android:id="@+id/btn_confirmar"
+               android:text="Criar Nova Conta"
+               android:textColor="#FFFFFF"
+               android:layout_marginTop="10dp"
+               android:layout_gravity="center"
+               android:layout_width="180dp"
+               android:layout_height="wrap_content"
+               android:background="#6b0000"
+               />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
