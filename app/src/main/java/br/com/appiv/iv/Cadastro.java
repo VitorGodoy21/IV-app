@@ -56,18 +56,16 @@ public class Cadastro extends AppCompatActivity {
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
 
+                String validacao = "";
+                validacao += etDataFatura.getText().toString().charAt((etDataFatura.getText().toString().length()) - 1);
+                if(!validacaoDataFatura(validacao) && !validacaão.equals("/")) {
 
-                    String validacao = "";
-
-                    validacao += etDataFatura.getText().toString().charAt(etDataFatura.getText().toString().length() - 1);
-                if(!validacaoDataFatura(validacao)) {
-                    validacao = etDataFatura.getText().toString().replace(validacao, "");
+                    validacao = etDataFatura.getText().toString().replace(validacao, " ");
                     etDataFatura.setText(validacao);
                 }
-
-
                 String barra = "";
                 if(count==2) {
+
                     barra = etDataFatura.getText().toString() + "/";
                     etDataFatura.setText(barra);
                     etDataFatura.setSelection(3);
@@ -78,7 +76,6 @@ public class Cadastro extends AppCompatActivity {
             }
 
         });
-
     }
 
     private void inserirConta(){
