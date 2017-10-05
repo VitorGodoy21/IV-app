@@ -58,7 +58,7 @@ public class Cadastro extends AppCompatActivity {
 
                 String validacao = "";
                 validacao += etDataFatura.getText().toString().charAt((etDataFatura.getText().toString().length()) - 1);
-                if(!validacaoDataFatura(validacao) && !validacaão.equals("/")) {
+                if(!validacaoDataFatura(validacao) && !validacao.equals("/")) {
 
                     validacao = etDataFatura.getText().toString().replace(validacao, " ");
                     etDataFatura.setText(validacao);
