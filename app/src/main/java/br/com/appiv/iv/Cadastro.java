@@ -2,6 +2,8 @@ package br.com.appiv.iv;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,39 +11,85 @@ import java.sql.Date;
 
 public class Cadastro extends AppCompatActivity {
 
-    private EditText nomeConta;
-    private EditText saldo;
-    private EditText dataFatura;
-    private EditText senha;
-    private Button criarNovaConta;
+    private EditText etNomeConta;
+    private EditText etSaldo;
+    private EditText etDataFatura;
+    private EditText etSenha;
+    private Button btnCriarNovaConta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro);
         criarElementos();
-        //Ação de criar conta
-        criarNovaConta.setOnClickListener(new View.OnClickListener(){
+        acaoElementos();
+
+    }
+
+    private void criarElementos(){
+
+        etNomeConta = (EditText) findViewById(R.id.et_nomeConta);
+        etSaldo = (EditText) findViewById(R.id.et_saldo);
+        etDataFatura = (EditText) findViewById(R.id.et_dataFatura);
+        etSenha = (EditText) findViewById(R.id.et_senha);
+        btnCriarNovaConta = (Button) findViewById(R.id.btn_confirmar);
+    }
+
+    private void acaoElementos() {
+
+        btnCriarNovaConta.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view){
-
                 inserirConta();
             }
+        });
+
+        etDataFatura.addTextChangedListener(new TextWatcher() {
+
+            public void afterTextChanged(Editable s) {}
+
+            public void beforeTextChanged(CharSequence s, int start,
+                                          int count, int after) {
+            }
+
+            public void onTextChanged(CharSequence s, int start,
+                                      int before, int count) {
+
+                String validacao = "";
+                validacao += etDataFatura.getText().toString().charAt((etDataFatura.getText().toString().length()) - 1);
+                if(!validacaoDataFatura(validacao) && !validacaão.equals("/")) {
+
+                    validacao = etDataFatura.getText().toString().replace(validacao, " ");
+                    etDataFatura.setText(validacao);
+                }
+                String barra = "";
+                if(count==2) {
+
+                    barra = etDataFatura.getText().toString() + "/";
+                    etDataFatura.setText(barra);
+                    etDataFatura.setSelection(3);
+                }
+
+                if(count==5)
+                    etSenha.requestFocus();
+            }
+
         });
     }
 
     private void inserirConta(){
 
         br.com.appiv.iv.controller.Cadastro cadastro = new br.com.appiv.iv.controller.Cadastro();
-        int intSenha = Integer.parseInt(senha.getText().toString());
-        double dblSaldo = Double.parseDouble(saldo.getText().toString());
+        int intSenha = Integer.parseInt(etSenha.getText().toString());
+        double dblSaldo = Double.parseDouble(etSaldo.getText().toString());
         Date data;
+        data = Date.valueOf(etDataFatura.getText().toString());
         boolean cadastrou = cadastro.inserirConta(this,
-                nomeConta.getText().toString(),
+                etNomeConta.getText().toString(),
                 intSenha,
                 dblSaldo,
-                data = Date.valueOf(dataFatura.getText().toString())
+                data
         );
 
         if(cadastrou){
@@ -54,12 +102,15 @@ public class Cadastro extends AppCompatActivity {
         }
     }
 
-    private void criarElementos(){
+    private boolean validacaoDataFatura(String s) {
 
-        nomeConta = (EditText) findViewById(R.id.et_nomeConta);
-        saldo = (EditText) findViewById(R.id.et_saldo);
-        dataFatura = (EditText) findViewById(R.id.et_dataFatura);
-        senha = (EditText) findViewById(R.id.et_senha);
-        criarNovaConta = (Button) findViewById(R.id.btn_confirmar);
+        if(s.equals("0") || s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ||
+           s.equals("6") || s.equals("7") || s.equals("8") || s.equals("9") || s.equals("/")  ) {
+            return true;
+        }
+
+        return false;
+
     }
+
 }

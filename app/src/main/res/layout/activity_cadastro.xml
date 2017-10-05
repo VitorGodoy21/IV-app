@@ -34,14 +34,22 @@
                     android:id="@+id/et_nomeConta"
                     style="@style/EditText_Cadastro"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:maxLength="30" />
 
             </LinearLayout>
 
+         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="horizontal">
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:paddingRight="5dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
                 <TextView
@@ -57,15 +65,18 @@
                     style="@style/EditText_Cadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:hint="0.00"
                     android:inputType="numberDecimal" />
 
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:paddingLeft="5dp"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="vertical"
-                android:padding="10dp">
+                >
 
                 <TextView
                     android:id="@+id/tv_dataFatura"
@@ -74,11 +85,18 @@
                     android:text="Data da Fatura"
                     android:textColor="@color/colorPrimaryDark" />
 
+
                 <EditText
                     android:id="@+id/et_dataFatura"
                     style="@style/EditText_Cadastro"
+                    android:maxLength="5"
+                    android:hint="dd/mm"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"/>
+
+
+            </LinearLayout>
 
             </LinearLayout>
 
