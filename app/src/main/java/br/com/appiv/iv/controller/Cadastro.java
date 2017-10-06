@@ -13,7 +13,7 @@ public class Cadastro {
                                 Date dataFatura){
 
         Conta conta = new Conta(nomeConta,dataFatura,saldo,senha);
-        br.com.appiv.iv.dao.Cadastro cadastro = new br.com.appiv.iv.dao.Cadastro();
-        return cadastro.inserirConta(conta,context);
+        br.com.appiv.iv.dao.Cadastro cadastro = new br.com.appiv.iv.dao.Cadastro(context);
+        return cadastro.inserirConta(conta);
     }
 }

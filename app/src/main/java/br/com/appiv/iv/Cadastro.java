@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import java.sql.Date;
 
+import br.com.appiv.iv.complementar.Data;
+
 public class Cadastro extends AppCompatActivity {
 
     private EditText etNomeConta;
@@ -50,28 +52,34 @@ public class Cadastro extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
 
             public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
+                                          int count, int after) {}
 
             public void onTextChanged(CharSequence s, int start,
                                       int before, int count) {
 
-                String validacao = "";
-                validacao += etDataFatura.getText().toString().charAt((etDataFatura.getText().toString().length()) - 1);
-                if(!validacaoDataFatura(validacao) && !validacao.equals("/")) {
+                Data data = new Data();
+                if(!data.validarPreenchimentoData(etDataFatura.getText().toString())){
 
-                    validacao = etDataFatura.getText().toString().replace(validacao, " ");
-                    etDataFatura.setText(validacao);
-                }
-                String barra = "";
-                if(count==2) {
-
-                    barra = etDataFatura.getText().toString() + "/";
-                    etDataFatura.setText(barra);
-                    etDataFatura.setSelection(3);
+                    etDataFatura.setText("");
                 }
 
-                if(count==5)
+                if(etDataFatura.getText().length() == 2) {
+
+                    if(data.formatarData(etDataFatura.getText().toString(),
+                            etDataFatura.getText().toString().length(),
+                            count) != null){
+
+                        etDataFatura.setText(data.formatarData(etDataFatura.getText().toString(),
+                                etDataFatura.getText().toString().length(),
+                                count));
+                        etDataFatura.setSelection(3);
+                    }else{
+
+                        etDataFatura.setText("");
+                    }
+                }
+
+                if(etDataFatura.getText().toString().length() == 5)
                     etSenha.requestFocus();
             }
 
@@ -84,7 +92,7 @@ public class Cadastro extends AppCompatActivity {
         int intSenha = Integer.parseInt(etSenha.getText().toString());
         double dblSaldo = Double.parseDouble(etSaldo.getText().toString());
         Date data;
-        data = Date.valueOf(etDataFatura.getText().toString());
+        data = Date.valueOf("2015-03-13");
         boolean cadastrou = cadastro.inserirConta(this,
                 etNomeConta.getText().toString(),
                 intSenha,
@@ -94,23 +102,10 @@ public class Cadastro extends AppCompatActivity {
 
         if(cadastrou){
 
-            //show de bola...
-            //Leva pra outra tela
+            //Redireciona para outra tela
         }else{
 
             //ferrou
         }
     }
-
-    private boolean validacaoDataFatura(String s) {
-
-        if(s.equals("0") || s.equals("1") || s.equals("2") || s.equals("3") || s.equals("4") || s.equals("5") ||
-           s.equals("6") || s.equals("7") || s.equals("8") || s.equals("9") || s.equals("/")  ) {
-            return true;
-        }
-
-        return false;
-
-    }
-
 }

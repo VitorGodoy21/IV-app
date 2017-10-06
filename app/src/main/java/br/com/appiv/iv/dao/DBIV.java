@@ -1,12 +1,15 @@
 package br.com.appiv.iv.dao;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import br.com.appiv.iv.constants.Conta;
+
 public class DBIV extends SQLiteOpenHelper{
 
-    private static final int DB_VERSAO = 1;
+    private static final int DB_VERSAO = 2;
     private static final String DB_NOME = "dbiv";
 
     public DBIV(Context context){
@@ -37,7 +40,7 @@ public class DBIV extends SQLiteOpenHelper{
                         "data TEXT," +
                         "dataPagamento TEXT," +
                         "idConta INTEGER," +
-                        "FOREIGN KEY idConta REFERENCES conta(id)" +
+                        "FOREIGN KEY (idConta) REFERENCES conta(id)" +
                         ");";
 
         String tabelaGanho =
@@ -49,19 +52,24 @@ public class DBIV extends SQLiteOpenHelper{
                         "parcelas INTEGER," +
                         "dataRecebimento TEXT," +
                         "idConta INTEGER," +
-                        "FOREIGN KEY idConta REFERENCES conta(id)" +
+                        "FOREIGN KEY (idConta) REFERENCES conta(id)" +
                         ");";
 
-        String preferencias =
+        String tabelaPreferencias =
                 "CREATE TABLE preferencias(" +
                         "id INTEGER PRIMARY KEY," +
                         "descricao TEXT," +
-                        "bloaqueado INTEGER," +
+                        "bloaqueado INTEGER" +
                         ");";
+
+        db.execSQL(tabelaConta);
+        db.execSQL(tabelaGanho);
+        db.execSQL(tabelaGasto);
+        db.execSQL(tabelaPreferencias);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int versaoAtual, int novaVersao) {
-
+        onCreate(sqLiteDatabase);
     }
 }

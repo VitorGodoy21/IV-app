@@ -8,20 +8,26 @@ import br.com.appiv.iv.constants.Conta;
 
 public class Cadastro {
 
-    public boolean inserirConta(br.com.appiv.iv.model.Conta conta, Context context){
+    private DBIV db;
+    private SQLiteDatabase sqliteDatabase;
+
+    public Cadastro(Context context){
+
+        db = new DBIV(context);
+        sqliteDatabase = db.getWritableDatabase();
+    }
+
+    public boolean inserirConta(br.com.appiv.iv.model.Conta conta){
 
         try {
-            DBIV db;
-            SQLiteDatabase sqliteDataBase;
-            db = new DBIV(context);
-            sqliteDataBase = db.getWritableDatabase();
+
             ContentValues values = new ContentValues();
             values.put(Conta.NOME_CONTA, conta.getNome());
             values.put(Conta.SENHA, conta.getSenha());
             values.put(Conta.SALDO, conta.getSaldo());
             values.put(Conta.DATA_FATURA, conta.getDataFatura().toString());
-            sqliteDataBase.insert(Conta.CONTA, null, values);
-            sqliteDataBase.close();
+            sqliteDatabase.insert(Conta.CONTA, null, values);
+            sqliteDatabase.close();
             return true;
         }catch (Exception e){
 
