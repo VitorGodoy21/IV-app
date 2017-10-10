@@ -1,4 +1,4 @@
-package br.com.appiv.iv.complementar;
+package br.com.appiv.iv.tools;
 
 public class Data {
 
@@ -130,5 +130,23 @@ public class Data {
         }
 
         return true;
+    }
+
+    public boolean validarTamanhoData(int tamanho){
+
+        if(tamanho != 5){
+
+            return false;
+        }
+
+        return true;
+    }
+
+    //Este método retorna uma string valida para colocar no construtor do objeto Date
+    public String formatoValido(String data){
+
+        String dia = data.substring(0,2);
+        String mes = data.substring(3,5);
+        return "2000" + "-" + mes + "-" + dia;
     }
 }

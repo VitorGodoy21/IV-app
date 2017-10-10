@@ -1,5 +1,6 @@
 package br.com.appiv.iv;
 
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -8,10 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import java.sql.Date;
+import br.com.appiv.iv.tools.Data;
 
-import br.com.appiv.iv.complementar.Data;
-
-public class Cadastro extends AppCompatActivity {
+public class Cadastro extends AppCompatActivity implements Mensagem {
 
     private EditText etNomeConta;
     private EditText etSaldo;
@@ -43,7 +43,11 @@ public class Cadastro extends AppCompatActivity {
 
             @Override
             public void onClick(View view){
-                inserirConta();
+
+                if(validarInsercao()){
+
+                    inserirConta();
+                }
             }
         });
 
@@ -61,6 +65,7 @@ public class Cadastro extends AppCompatActivity {
                 if(!data.validarPreenchimentoData(etDataFatura.getText().toString())){
 
                     etDataFatura.setText("");
+                    mostrarMensagem(br.com.appiv.iv.constants.Cadastro.dataInvalida);
                 }
 
                 if(etDataFatura.getText().length() == 2) {
@@ -91,13 +96,13 @@ public class Cadastro extends AppCompatActivity {
         br.com.appiv.iv.controller.Cadastro cadastro = new br.com.appiv.iv.controller.Cadastro();
         int intSenha = Integer.parseInt(etSenha.getText().toString());
         double dblSaldo = Double.parseDouble(etSaldo.getText().toString());
-        Date data;
-        data = Date.valueOf("2015-03-13");
+        Data data = new Data();
+        Date dataFatura = Date.valueOf(data.formatoValido(etDataFatura.getText().toString()));
         boolean cadastrou = cadastro.inserirConta(this,
                 etNomeConta.getText().toString(),
                 intSenha,
                 dblSaldo,
-                data
+                dataFatura
         );
 
         if(cadastrou){
@@ -107,5 +112,37 @@ public class Cadastro extends AppCompatActivity {
 
             //ferrou
         }
+    }
+
+    //Este método é responsável pela verificação final da ação do botão que cadastra uma nova conta
+    private boolean validarInsercao(){
+
+        Data data = new Data();
+        if(     etNomeConta.getText().toString().equals("") ||
+                etSaldo.getText().toString().equals("") ||
+                etDataFatura.getText().toString().equals("") ||
+                etSenha.getText().toString().equals("")){
+
+            mostrarMensagem(br.com.appiv.iv.constants.Cadastro.camposNulos);
+            return false;
+        } else if(!data.validarTamanhoData(etDataFatura.getText().toString().length())){
+
+            mostrarMensagem(br.com.appiv.iv.constants.Cadastro.formatoInvalido);
+            return false;
+        }else {
+
+            return true;
+        }
+    }
+
+    @Override
+    public void mostrarMensagem(String mensagem) {
+
+        AlertDialog.Builder alert = new AlertDialog.Builder(br.com.appiv.iv.Cadastro.this);
+        alert.setTitle(br.com.appiv.iv.constants.Cadastro.titulo);
+        alert.setMessage(mensagem);
+        alert.setPositiveButton(br.com.appiv.iv.constants.Cadastro.botao, null);
+        alert.create();
+        alert.show();
     }
 }
