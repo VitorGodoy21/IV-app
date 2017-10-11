@@ -70,34 +70,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:paddingLeft="5dp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:id="@+id/tv_dataFatura"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Data da Fatura"
-                    android:textColor="@color/colorPrimaryDark" />
-
-
-                <EditText
-                    android:id="@+id/et_dataFatura"
-                    style="@style/EditText_Cadastro"
-                    android:maxLength="5"
-                    android:hint="dd/mm"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="10dp"/>
-
-
-            </LinearLayout>
-
             </LinearLayout>
 
             <LinearLayout

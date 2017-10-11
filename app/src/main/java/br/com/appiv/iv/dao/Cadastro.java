@@ -25,7 +25,6 @@ public class Cadastro {
             values.put(Conta.NOME_CONTA, conta.getNome());
             values.put(Conta.SENHA, conta.getSenha());
             values.put(Conta.SALDO, conta.getSaldo());
-            values.put(Conta.DATA_FATURA, conta.getDataFatura().toString());
             sqliteDatabase.insert(Conta.CONTA, null, values);
             sqliteDatabase.close();
             return true;

@@ -9,7 +9,8 @@ import br.com.appiv.iv.constants.Conta;
 
 public class DBIV extends SQLiteOpenHelper{
 
-    private static final int DB_VERSAO = 2;
+    //Versão atualizada 3
+    private static final int DB_VERSAO = 3;
     private static final String DB_NOME = "dbiv";
 
     public DBIV(Context context){
@@ -20,52 +21,11 @@ public class DBIV extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
 
-        String tabelaConta =
-                "CREATE TABLE conta(" +
-                        "id INTEGER PRIMARY KEY," +
-                        "nomeConta TEXT," +
-                        "senha INTEGER,"+
-                        "saldo REAL," +
-                        "dataFatura TEXT" +
-                        ");";
-
-        String tabelaGasto =
-                "CREATE TABLE gasto(" +
-                        "id INTEGER PRIMARY KEY," +
-                        "descricao TEXT," +
-                        "tag TEXT," +
-                        "saldoMovimentado REAL," +
-                        "saldoCalculado REAL," +
-                        "parcelas INTEGER," +
-                        "data TEXT," +
-                        "dataPagamento TEXT," +
-                        "idConta INTEGER," +
-                        "FOREIGN KEY (idConta) REFERENCES conta(id)" +
-                        ");";
-
-        String tabelaGanho =
-                "CREATE TABLE ganho(" +
-                        "id INTEGER PRIMARY KEY," +
-                        "descricao TEXT," +
-                        "saldoMovimentado REAL," +
-                        "saldoCalculado REAL," +
-                        "parcelas INTEGER," +
-                        "dataRecebimento TEXT," +
-                        "idConta INTEGER," +
-                        "FOREIGN KEY (idConta) REFERENCES conta(id)" +
-                        ");";
-
-        String tabelaPreferencias =
-                "CREATE TABLE preferencias(" +
-                        "id INTEGER PRIMARY KEY," +
-                        "descricao TEXT," +
-                        "bloaqueado INTEGER" +
-                        ");";
-
-        db.execSQL(tabelaConta);
-        db.execSQL(tabelaGanho);
-        db.execSQL(tabelaGasto);
-        db.execSQL(tabelaPreferencias);
+        db.execSQL(br.com.appiv.iv.constants.DBIV.CONTA);
+        db.execSQL(br.com.appiv.iv.constants.DBIV.GANHO);
+        db.execSQL(br.com.appiv.iv.constants.DBIV.GASTO);
+        db.execSQL(br.com.appiv.iv.constants.DBIV.CREDITO);
+        db.execSQL(br.com.appiv.iv.constants.DBIV.PREFERENCIA);
     }
 
     @Override

@@ -9,10 +9,9 @@ public class Cadastro {
     public boolean inserirConta(Context context,
                                 String nomeConta,
                                 int senha,
-                                double saldo,
-                                Date dataFatura){
+                                double saldo){
 
-        Conta conta = new Conta(nomeConta,dataFatura,saldo,senha);
+        Conta conta = new Conta(nomeConta,saldo,senha);
         br.com.appiv.iv.dao.Cadastro cadastro = new br.com.appiv.iv.dao.Cadastro(context);
         return cadastro.inserirConta(conta);
     }
