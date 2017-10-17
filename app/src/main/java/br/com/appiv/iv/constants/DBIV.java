@@ -51,7 +51,7 @@ public class DBIV {
             "dataInicio TEXT," +
             "diaFatura INTEGER," +
             "limite REAL," +
-            "idConta INTEGER" +
+            "idConta INTEGER," +
             "FOREIGN KEY (idConta) REFERENCES conta(id)" +
             ");";
 

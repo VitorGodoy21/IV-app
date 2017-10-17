@@ -27,6 +27,7 @@ public class Cadastro {
             values.put(Conta.SALDO, conta.getSaldo());
             sqliteDatabase.insert(Conta.CONTA, null, values);
             sqliteDatabase.close();
+            System.out.println("INSERIDO");
             return true;
         }catch (Exception e){
 

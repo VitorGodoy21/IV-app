@@ -47,8 +47,7 @@ public class Cadastro extends AppCompatActivity {
                 if(validarCamposPreenchidos())
                     if(validarSaldo())
                         if(validarSenha())
-                            br.com.appiv.iv.tools.Mensagem.mostrarToast(br.com.appiv.iv.constants.Cadastro.CONCLUIDO,  context);
-                //inserirConta();
+                            inserirConta();
             }
 
         });
@@ -159,6 +158,17 @@ public class Cadastro extends AppCompatActivity {
 
 
         return true;
+    }
+
+    private void inserirConta(){
+
+        br.com.appiv.iv.controller.Cadastro controller = new br.com.appiv.iv.controller.Cadastro();
+        int intSenha = Integer.parseInt(etSenha.getText().toString());
+        double dblSaldo = Double.parseDouble(etSaldo.getText().toString());
+        controller.inserirConta(this,
+                etNomeConta.getText().toString(),
+                intSenha,
+                dblSaldo);
     }
 
 

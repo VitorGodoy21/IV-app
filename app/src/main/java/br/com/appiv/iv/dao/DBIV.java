@@ -9,8 +9,8 @@ import br.com.appiv.iv.constants.Conta;
 
 public class DBIV extends SQLiteOpenHelper{
 
-    //Versão atualizada 3
-    private static final int DB_VERSAO = 3;
+    //Versão atualizada 5
+    private static final int DB_VERSAO = 5;
     private static final String DB_NOME = "dbiv";
 
     public DBIV(Context context){
@@ -30,6 +30,12 @@ public class DBIV extends SQLiteOpenHelper{
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int versaoAtual, int novaVersao) {
+
+        sqLiteDatabase.execSQL("DROP TABLE GANHO");
+        sqLiteDatabase.execSQL("DROP TABLE GASTO");
+        sqLiteDatabase.execSQL("DROP TABLE CREDITO");
+        sqLiteDatabase.execSQL("DROP TABLE PREFERENCIA");
+        sqLiteDatabase.execSQL("DROP TABLE CONTA");
         onCreate(sqLiteDatabase);
     }
 }
