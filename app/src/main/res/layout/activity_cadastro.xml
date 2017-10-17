@@ -35,22 +35,18 @@
                     style="@style/EditText_Cadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:maxLines="1"
                     android:maxLength="30" />
 
             </LinearLayout>
 
-         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:orientation="horizontal">
+
 
             <LinearLayout
-                android:paddingRight="5dp"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
                 <TextView
                     android:id="@+id/tv_saldo"
@@ -70,7 +66,8 @@
 
             </LinearLayout>
 
-            </LinearLayout>
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,16 +114,16 @@
 
             </LinearLayout>
 
-           <Button
-               android:id="@+id/btn_confirmar"
-               android:text="Criar Nova Conta"
-               android:textColor="#FFFFFF"
-               android:layout_marginTop="10dp"
-               android:layout_gravity="center"
-               android:layout_width="180dp"
-               android:layout_height="wrap_content"
-               android:background="#6b0000"
-               />
+            <Button
+                android:id="@+id/btn_confirmar"
+                android:text="Criar Nova Conta"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="10dp"
+                android:layout_gravity="center"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:background="#6b0000"
+                />
 
         </LinearLayout>
 
