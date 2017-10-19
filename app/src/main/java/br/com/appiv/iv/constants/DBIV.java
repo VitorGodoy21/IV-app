@@ -49,7 +49,7 @@ public class DBIV {
             "nome TEXT," +
             "descricao TEXT," +
             "dataInicio TEXT," +
-            "diaFatura INTEGER," +
+            "dataFatura TEXT," +
             "limite REAL," +
             "idConta INTEGER," +
             "FOREIGN KEY (idConta) REFERENCES conta(id)" +

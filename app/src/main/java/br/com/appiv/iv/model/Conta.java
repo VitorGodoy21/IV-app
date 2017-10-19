@@ -41,4 +41,20 @@ public class Conta {
     public void setSenha(int senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Conta{" +
+                "nome='" + nome + '\'' +
+                ", saldo=" + saldo +
+                ", senha=" + senha +
+                '}';
+    }
+
+    //Query
+    public String buscarConta(){
+
+        br.com.appiv.iv.constants.Conta tabelaConta = new br.com.appiv.iv.constants.Conta();
+        return "SELECT " + tabelaConta.NOME_CONTA + "," + tabelaConta.SALDO + " FROM " + tabelaConta.CONTA;
+    }
 }

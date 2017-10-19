@@ -6,6 +6,11 @@ import br.com.appiv.iv.model.Conta;
 
 public class Cadastro {
 
+    public Cadastro(){
+
+
+    }
+
     public boolean inserirConta(Context context,
                                 String nomeConta,
                                 int senha,

@@ -9,8 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import java.sql.Date;
-
 public class Cadastro extends AppCompatActivity {
 
     private EditText etNomeConta;
