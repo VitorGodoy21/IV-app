@@ -169,5 +169,63 @@ public class Cadastro extends AppCompatActivity {
                 dblSaldo);
     }
 
+/*    private void testeBuscarConta(){
 
+        br.com.appiv.iv.teste.Conta teste = new br.com.appiv.iv.teste.Conta();
+        teste.buscarConta(this);
+    }*/
+
+/*    private void testeAtualizar(){
+
+        br.com.appiv.iv.controller.Ganho controller = new br.com.appiv.iv.controller.Ganho();
+        controller.atualizar(this,9,"","",5,-1,"");
+        br.com.appiv.iv.teste.Ganho teste = new br.com.appiv.iv.teste.Ganho();
+        teste.buscar(this);
+    }*/
+
+    /*private void testeDeletar(){
+
+        br.com.appiv.iv.controller.Ganho controller = new br.com.appiv.iv.controller.Ganho();
+        controller.deletar(this,9);
+    }*/
+
+/*    private void testeBuscarGanho(){
+
+        br.com.appiv.iv.teste.Ganho teste = new br.com.appiv.iv.teste.Ganho();
+        teste.buscar(this);
+    }*/
+
+/*    private void testeInserirGanho(){
+
+        br.com.appiv.iv.controller.Ganho controller = new br.com.appiv.iv.controller.Ganho();
+        controller.inserir(this,
+                "teste30",
+                "teste30/10",
+                10.0,
+                20.0,
+                0,
+                "30/10/2017");
+    }*/
+
+/*    private void testeBuscarGanho(){
+
+        br.com.appiv.iv.teste.Ganho teste = new br.com.appiv.iv.teste.Ganho();
+        teste.buscar(this,"bico","trabalhei por fora",20.0,10.0,0,"18/10/2017");
+    }*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

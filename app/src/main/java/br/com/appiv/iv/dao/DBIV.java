@@ -10,7 +10,7 @@ import br.com.appiv.iv.constants.Conta;
 public class DBIV extends SQLiteOpenHelper{
 
     //Versão alterada 18/10/2017
-    private static final int DB_VERSAO = 7;
+    private static final int DB_VERSAO = 10;
     private static final String DB_NOME = "dbiv";
 
     public DBIV(Context context){

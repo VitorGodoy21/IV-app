@@ -37,7 +37,7 @@ public class DBIV {
             "descricao TEXT," +
             "saldoMovimentado REAL," +
             "saldoCalculado REAL," +
-            "parcelas INTEGER," +
+            "qtdParcela INTEGER," +
             "dataRecebimento TEXT," +
             "idConta INTEGER," +
             "FOREIGN KEY (idConta) REFERENCES conta(id)" +

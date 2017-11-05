@@ -2,6 +2,11 @@ package br.com.appiv.iv.constants;
 
 public class Cadastro {
 
+    public Cadastro(){
+
+
+    }
+
     public static final String NOMECONTA = "'Nome Conta'\n";
     public static final String SALDO = "'Saldo'\n";
     public static final String SENHA = "'Senha'\n";

@@ -23,6 +23,7 @@ public class Home {
         if(cursor.moveToNext()){
 
             conta = new Conta(cursor.getString(0),cursor.getDouble(1),0);
+            sqliteDatabase.close();
             return conta;
         }
 

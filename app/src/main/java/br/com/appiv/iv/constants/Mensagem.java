@@ -5,6 +5,12 @@ package br.com.appiv.iv.constants;
  */
 
 public class Mensagem {
+
+    public Mensagem(){
+
+
+    }
+
     public static final String ATENCAO = "Atenção!";
     public static final String OK = "OK";
 }

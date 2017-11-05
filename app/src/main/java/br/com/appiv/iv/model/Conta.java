@@ -54,7 +54,17 @@ public class Conta {
     //Query
     public String buscarConta(){
 
-        br.com.appiv.iv.constants.Conta tabelaConta = new br.com.appiv.iv.constants.Conta();
-        return "SELECT " + tabelaConta.NOME_CONTA + "," + tabelaConta.SALDO + " FROM " + tabelaConta.CONTA;
+        return "SELECT " + br.com.appiv.iv.constants.Conta.NOME_CONTA + "," +
+                br.com.appiv.iv.constants.Conta.SALDO +
+                " FROM " +
+                br.com.appiv.iv.constants.Conta.CONTA;
+    }
+
+    public String buscarSaldo(){
+
+        return "SELECT " +
+                br.com.appiv.iv.constants.Conta.SALDO +
+                " FROM " +
+                br.com.appiv.iv.constants.Conta.CONTA;
     }
 }
